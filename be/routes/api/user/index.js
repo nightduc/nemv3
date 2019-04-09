@@ -1,28 +1,46 @@
-var createError = require('http-errors');
 var express = require('express');
+var createError = require('http-errors');
 var router = express.Router();
 
-router.get('/hello', function(req, res, next) {
-  res.send({ msg:'hello', a: 1 });
-});
+const us = [
+  {
+    name: '김김김',
+    age: 14
+  },
+  {
+    name: '이이이',
+    age: 24
+  }
+]
 
 router.get('/', function(req, res, next) {
-  const us = [
-    {
-      name: '김김김',
-      age: 14
-    },
-    {
-      name: '이이이',
-      age: 25
-    }
-  ]
-  res.send({users:us});
+  console.log(req.query)
+    console.log(req.body)
+
+  res.send({ users: us })
 });
 
-/* GET users listing. */
+router.post('/', (req, res, next) => {
+  console.log(req.query)
+    console.log(req.body)
+  res.send({ success: true, msg: 'post ok' })
+})
+
+router.put('/', (req, res, next) => {
+  console.log(req.query)
+    console.log(req.body)
+  res.send({ success: true, msg: 'put ok' })
+})
+
+router.delete('/', (req, res, next) => {
+  console.log(req.query)
+    console.log(req.body)
+  res.send({ success: true, msg: 'del ok' })
+})
+
+
 router.all('*', function(req, res, next) {
-  next(createError(404,'No API'));
+  next(createError(404, '그런 api 없어'));
 });
 
 module.exports = router;
