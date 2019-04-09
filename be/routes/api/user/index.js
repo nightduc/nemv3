@@ -6,12 +6,23 @@ router.get('/hello', function(req, res, next) {
   res.send({ msg:'hello', a: 1 });
 });
 
-router.use('/user', require('./user'));
+router.get('/', function(req, res, next) {
+  const us = [
+    {
+      name: '김김김',
+      age: 14
+    },
+    {
+      name: '이이이',
+      age: 25
+    }
+  ]
+  res.send({users:us});
+});
 
 /* GET users listing. */
 router.all('*', function(req, res, next) {
   next(createError(404,'No API'));
 });
-
 
 module.exports = router;

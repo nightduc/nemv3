@@ -77,10 +77,16 @@ export default {
       clipped: false,
       drawer: true,
       fixed: false,
-      items: [{
-        icon: 'bubble_chart',
-        title: 'Inspire'
-      }],
+      items: [
+        {
+          icon: 'bubble_chart',
+          title: 'Inspire'
+        },
+        {
+          icon: 'bubble_chart',
+          title: 'user'
+        }
+      ],
       miniVariant: false,
       right: true,
       rightDrawer: false,
